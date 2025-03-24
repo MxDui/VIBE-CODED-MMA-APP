@@ -1,43 +1,75 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { Image } from 'expo-image';
+import { Play, Calendar, Trophy, ChevronRight } from 'lucide-react-native';
 
 export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
         <Image
-          source="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1000&auto=format&fit=crop"
+          source="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000&auto=format&fit=crop"
           style={styles.headerImage}
           contentFit="cover"
         />
         <View style={styles.headerOverlay}>
-          <Text style={styles.headerTitle}>Welcome to MMA Tracker</Text>
-          <Text style={styles.headerSubtitle}>Track, Learn, and Grow</Text>
+          <Text style={styles.welcomeText}>Welcome back,</Text>
+          <Text style={styles.headerTitle}>MASTER WARRIOR</Text>
         </View>
       </View>
-      
+
+      <View style={styles.quickActions}>
+        <Pressable style={styles.actionButton}>
+          <Play size={24} color="#FF3B3B" />
+          <Text style={styles.actionText}>START{'\n'}TRAINING</Text>
+        </Pressable>
+        <Pressable style={styles.actionButton}>
+          <Calendar size={24} color="#FF3B3B" />
+          <Text style={styles.actionText}>VIEW{'\n'}PROGRESS</Text>
+        </Pressable>
+        <Pressable style={styles.actionButton}>
+          <Trophy size={24} color="#FF3B3B" />
+          <Text style={styles.actionText}>DAILY{'\n'}BATTLES</Text>
+        </Pressable>
+      </View>
+
       <View style={styles.statsContainer}>
-        <View style={styles.statCard}>
-          <Text style={styles.statNumber}>12</Text>
-          <Text style={styles.statLabel}>Training Days</Text>
-        </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statNumber}>5</Text>
-          <Text style={styles.statLabel}>Techniques</Text>
-        </View>
-        <View style={styles.statCard}>
-          <Text style={styles.statNumber}>3</Text>
-          <Text style={styles.statLabel}>Achievements</Text>
+        <Text style={styles.sectionTitle}>COMBAT STATS</Text>
+        <View style={styles.statsGrid}>
+          <View style={styles.statCard}>
+            <Text style={styles.statNumber}>12</Text>
+            <Text style={styles.statLabel}>Training Days</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Text style={styles.statNumber}>5</Text>
+            <Text style={styles.statLabel}>Techniques</Text>
+          </View>
+          <View style={styles.statCard}>
+            <Text style={styles.statNumber}>3</Text>
+            <Text style={styles.statLabel}>Achievements</Text>
+          </View>
         </View>
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Today's Challenge</Text>
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>TODAY'S CHALLENGE</Text>
+          <ChevronRight size={20} color="#FF3B3B" />
+        </View>
         <View style={styles.challengeCard}>
-          <Text style={styles.challengeTitle}>Master the Jab</Text>
+          <View style={styles.challengeBadge}>
+            <Text style={styles.challengeBadgeText}>EXPERT</Text>
+          </View>
+          <Text style={styles.challengeTitle}>Master the Dragon Kick</Text>
           <Text style={styles.challengeDescription}>
-            Practice 100 jabs with proper form and technique
+            Perfect your form with 50 roundhouse kicks. Focus on power and
+            precision.
           </Text>
+          <View style={styles.challengeProgress}>
+            <View style={styles.progressBar}>
+              <View style={[styles.progressFill, { width: '60%' }]} />
+            </View>
+            <Text style={styles.progressText}>30/50 completed</Text>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -47,7 +79,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#121212',
   },
   header: {
     height: 200,
@@ -63,76 +95,133 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
-  headerTitle: {
-    color: '#ffffff',
-    fontSize: 24,
-    fontFamily: 'Inter-Bold',
-  },
-  headerSubtitle: {
-    color: '#ffffff',
+  welcomeText: {
+    color: '#FF3B3B',
     fontSize: 16,
     fontFamily: 'Inter-Regular',
-    marginTop: 4,
+  },
+  headerTitle: {
+    color: '#FFFFFF',
+    fontSize: 28,
+    fontFamily: 'Inter-Bold',
+    letterSpacing: 1,
+  },
+  quickActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+    backgroundColor: '#1A1A1A',
+  },
+  actionButton: {
+    alignItems: 'center',
+    backgroundColor: '#262626',
+    borderRadius: 12,
+    padding: 16,
+    width: '30%',
+  },
+  actionText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontFamily: 'Inter-Bold',
+    marginTop: 8,
+    textAlign: 'center',
+    letterSpacing: 0.5,
   },
   statsContainer: {
-    flexDirection: 'row',
     padding: 20,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontFamily: 'Inter-Bold',
+    letterSpacing: 1,
+  },
+  statsGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 16,
   },
   statCard: {
-    backgroundColor: '#ffffff',
-    padding: 16,
+    backgroundColor: '#262626',
     borderRadius: 12,
+    padding: 16,
+    width: '30%',
     alignItems: 'center',
-    flex: 1,
-    marginHorizontal: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
   statNumber: {
+    color: '#FF3B3B',
     fontSize: 24,
     fontFamily: 'Inter-Bold',
-    color: '#3b82f6',
   },
   statLabel: {
-    fontSize: 14,
+    color: '#9CA3AF',
+    fontSize: 12,
     fontFamily: 'Inter-Regular',
-    color: '#64748b',
     marginTop: 4,
+    textAlign: 'center',
   },
   section: {
     padding: 20,
   },
-  sectionTitle: {
-    fontSize: 18,
-    fontFamily: 'Inter-Bold',
-    color: '#1e293b',
+  challengeCard: {
+    backgroundColor: '#262626',
+    borderRadius: 12,
+    padding: 20,
+    borderLeftWidth: 4,
+    borderLeftColor: '#FF3B3B',
+  },
+  challengeBadge: {
+    backgroundColor: '#FF3B3B',
+    borderRadius: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    alignSelf: 'flex-start',
     marginBottom: 12,
   },
-  challengeCard: {
-    backgroundColor: '#ffffff',
-    padding: 20,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+  challengeBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontFamily: 'Inter-Bold',
   },
   challengeTitle: {
-    fontSize: 16,
+    color: '#FFFFFF',
+    fontSize: 20,
     fontFamily: 'Inter-Bold',
-    color: '#1e293b',
+    marginBottom: 8,
   },
   challengeDescription: {
+    color: '#9CA3AF',
     fontSize: 14,
     fontFamily: 'Inter-Regular',
-    color: '#64748b',
-    marginTop: 4,
+    marginBottom: 16,
+  },
+  challengeProgress: {
+    marginTop: 16,
+  },
+  progressBar: {
+    height: 8,
+    backgroundColor: '#333333',
+    borderRadius: 4,
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#FF3B3B',
+    borderRadius: 4,
+  },
+  progressText: {
+    color: '#9CA3AF',
+    fontSize: 12,
+    fontFamily: 'Inter-Regular',
+    marginTop: 8,
+    textAlign: 'right',
   },
 });

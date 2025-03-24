@@ -1,0 +1,34 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "back": "Atrás"
+  },
+  "tabs": {
+    "home": "Inicio",
+    "techniques": "Técnicas",
+    "challenges": "Desafíos",
+    "profile": "Perfil"
+  },
+  "home": {
+    "title": "Bienvenido a MMA Tracker",
+    "subtitle": "Sigue tu progreso de aprendizaje y logros"
+  },
+  "techniques": {
+    "title": "Técnicas",
+    "search": "Buscar técnicas",
+    "categories": "Categorías",
+    "recent": "Técnicas Recientes"
+  },
+  "challenges": {
+    "title": "Desafíos",
+    "completed": "Completados",
+    "available": "Disponibles",
+    "points": "{{count}} puntos"
+  },
+  "profile": {
+    "title": "Perfil",
+    "stats": "Estadísticas",
+    "settings": "Configuración",
+    "logout": "Cerrar Sesión"
+  }
+}

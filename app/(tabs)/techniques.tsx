@@ -7,21 +7,24 @@ const techniques = [
     name: 'Basic Jab',
     category: 'Striking',
     difficulty: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1000&auto=format&fit=crop',
+    image:
+      'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: '2',
     name: 'Cross',
     category: 'Striking',
     difficulty: 'Beginner',
-    image: 'https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?q=80&w=1000&auto=format&fit=crop',
+    image:
+      'https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: '3',
     name: 'Round Kick',
     category: 'Striking',
     difficulty: 'Intermediate',
-    image: 'https://images.unsplash.com/photo-1615117972428-28de67cda58e?q=80&w=1000&auto=format&fit=crop',
+    image:
+      'https://images.unsplash.com/photo-1615117972428-28de67cda58e?q=80&w=1000&auto=format&fit=crop',
   },
 ];
 
@@ -29,7 +32,7 @@ export default function TechniquesScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Technique Library</Text>
+        <Text style={styles.title}>TECHNIQUE LIBRARY</Text>
         <Text style={styles.subtitle}>Master the fundamentals and beyond</Text>
       </View>
 
@@ -61,8 +64,14 @@ export default function TechniquesScreen() {
             <View style={styles.techniqueInfo}>
               <Text style={styles.techniqueName}>{technique.name}</Text>
               <View style={styles.techniqueMetaContainer}>
-                <Text style={styles.techniqueCategory}>{technique.category}</Text>
-                <Text style={styles.techniqueDifficulty}>{technique.difficulty}</Text>
+                <Text style={styles.techniqueCategory}>
+                  {technique.category}
+                </Text>
+                <View style={styles.difficultyBadge}>
+                  <Text style={styles.techniqueDifficulty}>
+                    {technique.difficulty}
+                  </Text>
+                </View>
               </View>
             </View>
           </Pressable>
@@ -75,7 +84,7 @@ export default function TechniquesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#121212',
   },
   header: {
     padding: 20,
@@ -83,12 +92,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: 'Inter-Bold',
-    color: '#1e293b',
+    color: '#FFFFFF',
+    letterSpacing: 1,
   },
   subtitle: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',
-    color: '#64748b',
+    color: '#9CA3AF',
     marginTop: 4,
   },
   filters: {
@@ -99,33 +109,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
-    backgroundColor: '#f1f5f9',
+    backgroundColor: '#262626',
     marginRight: 8,
   },
   filterButtonActive: {
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#FF3B3B',
   },
   filterButtonText: {
-    color: '#64748b',
+    color: '#9CA3AF',
     fontFamily: 'Inter-Regular',
   },
   filterButtonTextActive: {
-    color: '#ffffff',
+    color: '#FFFFFF',
     fontFamily: 'Inter-Regular',
   },
   techniquesList: {
     padding: 20,
   },
   techniqueCard: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#262626',
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    borderLeftWidth: 4,
+    borderLeftColor: '#FF3B3B',
   },
   techniqueImage: {
     width: '100%',
@@ -137,21 +144,28 @@ const styles = StyleSheet.create({
   techniqueName: {
     fontSize: 18,
     fontFamily: 'Inter-Bold',
-    color: '#1e293b',
+    color: '#FFFFFF',
   },
   techniqueMetaContainer: {
     flexDirection: 'row',
     marginTop: 8,
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   techniqueCategory: {
     fontSize: 14,
     fontFamily: 'Inter-Regular',
-    color: '#64748b',
-    marginRight: 12,
+    color: '#9CA3AF',
+  },
+  difficultyBadge: {
+    backgroundColor: '#3A3A3A',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 16,
   },
   techniqueDifficulty: {
-    fontSize: 14,
-    fontFamily: 'Inter-Regular',
-    color: '#64748b',
+    fontSize: 12,
+    fontFamily: 'Inter-Bold',
+    color: '#FF3B3B',
   },
 });

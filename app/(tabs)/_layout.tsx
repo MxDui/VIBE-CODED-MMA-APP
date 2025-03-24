@@ -1,46 +1,80 @@
 import { Tabs } from 'expo-router';
-import { Chrome as Home, Dumbbell, Trophy, User } from 'lucide-react-native';
+import { Dumbbell, Trophy, User, Chrome as Home } from 'lucide-react-native';
+import { StyleSheet } from 'react-native';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function TabLayout() {
+  const { t } = useTranslation();
+
   return (
     <Tabs
       screenOptions={{
         headerShown: true,
-        tabBarStyle: {
-          backgroundColor: '#ffffff',
-          borderTopColor: '#e5e5e5',
-        },
-        tabBarActiveTintColor: '#3b82f6',
-        tabBarInactiveTintColor: '#64748b',
-      }}>
+        tabBarStyle: styles.tabBar,
+        tabBarActiveTintColor: '#FF3B3B',
+        tabBarInactiveTintColor: '#6B7280',
+        headerStyle: styles.header,
+        headerTitleStyle: styles.headerTitle,
+        headerTintColor: '#FFFFFF',
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
+          title: t('tabs.home').toUpperCase(),
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <Home size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="techniques"
         options={{
-          title: 'Techniques',
-          tabBarIcon: ({ color, size }) => <Dumbbell size={size} color={color} />,
+          title: t('tabs.techniques').toUpperCase(),
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <Dumbbell size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="challenges"
         options={{
-          title: 'Challenges',
-          tabBarIcon: ({ color, size }) => <Trophy size={size} color={color} />,
+          title: t('tabs.challenges').toUpperCase(),
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <Trophy size={size} color={color} />
+          ),
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
-          tabBarIcon: ({ color, size }) => <User size={size} color={color} />,
+          title: t('tabs.profile').toUpperCase(),
+          tabBarIcon: ({ color, size }: { color: string; size: number }) => (
+            <User size={size} color={color} />
+          ),
         }}
       />
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBar: {
+    backgroundColor: '#1A1A1A',
+    borderTopColor: '#333333',
+    height: 60,
+    paddingBottom: 8,
+    paddingTop: 8,
+  },
+  header: {
+    backgroundColor: '#1A1A1A',
+    borderBottomWidth: 1,
+    borderBottomColor: '#333333',
+  },
+  headerTitle: {
+    color: '#FFFFFF',
+    fontFamily: 'Inter-Bold',
+    fontSize: 20,
+    letterSpacing: 1,
+  },
+});
