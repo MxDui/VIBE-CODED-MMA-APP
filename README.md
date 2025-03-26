@@ -56,9 +56,16 @@ npx expo start
 
 ### Inspiración y Recursos
 
-- [Expo Examples](https://github.com/expo/examples)
-- [React Native Paper](https://callstack.github.io/react-native-paper/)
-- [React Native Elements](https://reactnativeelements.com/)
+- [Cursor Directory](https://cursor.directory/)
+- [Windsurf Directory](https://www.windsurf.directory/)
+- [Hacker News](https://news.ycombinator.com/news)
+
+### Cuentas de twitter
+
+- [Levels.io](https://x.com/levelsio?)
+- [Andrej Karpathy](https://twitter.com/karpathy)
+- [Riley Brown](https://x.com/rileybrown_ai)
+- [Jack Friks](https://x.com/jackfriks)
 
 ### Herramientas Recomendadas
 
