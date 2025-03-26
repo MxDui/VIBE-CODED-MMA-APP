@@ -19,7 +19,15 @@ export default function ProfileScreen() {
         <Text style={styles.bio}>MMA Enthusiast | 2 Years Experience</Text>
 
         <Pressable style={styles.editButton}>
-          <Text style={styles.editButtonText}>Edit Profile</Text>
+          <Text
+            style={styles.editButtonText}
+            onPress={() => {
+              console.log('Edit Profile');
+              throw new Error('Mock Profile Error: Failed to update profile');
+            }}
+          >
+            Edit Profile
+          </Text>
         </Pressable>
       </View>
 
